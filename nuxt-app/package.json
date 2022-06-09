@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "NITRO_PRESET=cloudflare nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "publish": "wrangler publish"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.3"
+  }
+}
