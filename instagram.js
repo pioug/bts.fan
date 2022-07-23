@@ -33,19 +33,18 @@ const puppeteer = require("puppeteer");
 })();
 
 async function scrapAccount(page, id) {
-  await page.goto(`https://bibliogram.froth.zone/u/${id}/`);
-  await page.waitForSelector('.profile-counter');
+  await page.goto(`https://www.instagram.com/${id}/`);
+  await page.waitForSelector("button");
   const content = await page.content();
   const $ = cheerio.load(content);
-  const followers = $(".profile-counter")
+  const followers = $("button")
     .filter(function (i, el) {
-      return $(el).text().includes("Followed by");
+      return $(el).text().includes("followers");
     })
-    .first()
     .find("span")
-    .attr("data-numberformat");
+    .attr("title");
   return {
     id,
-    followers: parseFloat(followers),
+    followers: +followers.replaceAll(",", ""),
   };
 }
