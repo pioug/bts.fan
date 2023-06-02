@@ -4,9 +4,8 @@
       <div v-for="account in accounts" class="account">
         <div>
           <h1>
-            <a :href="'https://www.instagram.com/' + account.id"
-              >@{{ account.id }}</a
-            >
+            <component :is="account.id === 'jungkook.97' ? 'span' : 'a'" :href="'https://www.instagram.com/' + account.id"
+              >@{{ account.id }}</component>
           </h1>
         </div>
         <div>
