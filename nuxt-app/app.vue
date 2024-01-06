@@ -101,6 +101,6 @@ section {
 .account {
   align-items: center;
   display: flex;
-  gap: 12px;
+  gap: 8px;
 }
 </style>
