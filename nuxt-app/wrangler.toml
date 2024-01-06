@@ -2,7 +2,7 @@ name = "bts"
 account_id = "3ee7ad0ab483fdf2ab7ee7be24ddf365"
 workers_dev = true
 compatibility_date = "2022-04-07"
-main = ".output/server/index.mjs"
+main = "./.output/server/index.mjs"
 
 [site]
 bucket = ".output/public"
