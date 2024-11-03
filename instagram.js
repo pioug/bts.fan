@@ -2,9 +2,14 @@ const fs = require("fs");
 const cheerio = require("cheerio");
 const puppeteer = require("puppeteer");
 
+// https://www.browserless.io/blog/2022/05/13/manage-sessions/
+// "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --remote-debugging-port=9222
+// http://127.0.0.1:9222/json/version
 (async () => {
   const timestamp = new Date();
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.connect({
+    browserWSEndpoint: "ws://127.0.0.1:9222/devtools/browser/3915cc84-9c4d-41cc-ad05-0d45bdb7d132",
+  });
   const page = (await browser.pages())[0];
   const accounts = [
     "bts.bighitofficial",
@@ -14,11 +19,8 @@ const puppeteer = require("puppeteer");
     "rkive",
     "j.m",
     "thv",
-    "jungkook.97",
   ];
   const data = [];
-
-  await authenticate(page);
 
   for (const account of accounts) {
     const result = await scrapAccount(page, account);
@@ -49,27 +51,4 @@ async function scrapAccount(page, id) {
     id,
     followers: +followers.replaceAll(",", ""),
   };
-}
-
-// https://www.browserless.io/blog/2022/05/13/manage-sessions/
-async function authenticate(page) {
-  await page.goto(`https://www.instagram.com/`);
-
-  const cookies = JSON.parse(process.env.COOKIES);
-  const localStorage = JSON.parse(process.env.LOCALSTORAGE);
-  const sessionStorage = JSON.parse(process.env.SESSIONSTORAGE);
-
-  await page.setCookie(...cookies);
-
-  await page.evaluate((data) => {
-    for (const [key, value] of Object.entries(data)) {
-      sessionStorage[key] = value;
-    }
-  }, sessionStorage);
-
-  await page.evaluate((data) => {
-    for (const [key, value] of Object.entries(data)) {
-      localStorage[key] = value;
-    }
-  }, sessionStorage);
 }
