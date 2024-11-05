@@ -8,6 +8,6 @@
     "publish": "wrangler publish"
   },
   "devDependencies": {
-    "nuxt": "^3.9.1"
+    "nuxt": "^3.14.0"
   }
 }
