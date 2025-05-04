@@ -1,0 +1,25 @@
+{
+  "name": "bts.fan",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "prettier . --check . && eslint .",
+    "format": "prettier . --write ."
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-cloudflare": "^7.0.1",
+    "@sveltejs/kit": "^2.15.1",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-svelte": "^3.5.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.2.6",
+    "svelte": "^5.16.0",
+    "vite": "^6.0.6"
+  },
+  "type": "module"
+}
