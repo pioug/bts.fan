@@ -1,14 +1,28 @@
 <script>
   import './global.css';
-  let { data } = $props();
-
-  const accounts = data.data;
-
-  const numberFormat = new Intl.NumberFormat();
-
-  function format(value) {
-    return numberFormat.format(value);
-  }
+  const accounts = [
+    {
+      id: 'bts.bighitofficial'
+    },
+    {
+      id: 'jin'
+    },
+    {
+      id: 'agustd'
+    },
+    {
+      id: 'uarmyhope'
+    },
+    {
+      id: 'rkive'
+    },
+    {
+      id: 'j.m'
+    },
+    {
+      id: 'thv'
+    }
+  ];
 </script>
 
 <svelte:head>
@@ -18,20 +32,9 @@
 <main>
   <section>
     {#each accounts as account (account.id)}
-      <div class="account">
-        <div>
-          <h1>
-            {#if account.id === 'jungkook.97'}
-              <span>@{account.id}</span>
-            {:else}
-              <a href={`https://www.instagram.com/${account.id}`}>@{account.id}</a>
-            {/if}
-          </h1>
-        </div>
-        <div>
-          <h2>{format(account.followers)} 👯</h2>
-        </div>
-      </div>
+      <h1>
+        <a href={`https://www.instagram.com/${account.id}`}>{account.id}</a>
+      </h1>
     {/each}
   </section>
   <aside>
@@ -40,22 +43,17 @@
 </main>
 
 <style>
-  h1,
-  h2 {
-    all: unset;
-  }
-
   h1 {
+    all: unset;
     font-size: 18px;
     line-height: 20px;
   }
 
-  h2 {
-    font-size: 14px;
-    line-height: 16px;
+  a {
+    color: inherit;
   }
 
-  .undecorated-anchor {
+  a:not(:hover) {
     text-decoration: unset;
   }
 
@@ -67,7 +65,6 @@
     inset: 0;
     justify-content: center;
     position: fixed;
-    text-align: center;
   }
 
   section {
@@ -75,7 +72,7 @@
     background: #fffe;
     border-radius: 8px;
     display: grid;
-    gap: 16px;
+    gap: 8px;
     grid-auto-flow: row;
     justify-content: center;
     padding: 16px;
@@ -87,9 +84,7 @@
       0 16px 16px hsl(0deg 0% 0% / 0.075);
   }
 
-  .account {
-    align-items: center;
-    display: flex;
-    gap: 8px;
+  aside {
+    text-align: center;
   }
 </style>
