@@ -33,23 +33,24 @@
 </svelte:head>
 
 <main>
-  <section>
+  <ul>
     {#each accounts as account (account.id)}
-      <h1>
+      <li>
         <a href={`https://www.instagram.com/${account.id}`}>{account.id}</a>
-      </h1>
+      </li>
     {/each}
-  </section>
+  </ul>
   <aside>
     <a class="undecorated-anchor" href="https://bit.ly/twitter-pioug">🐾</a>
   </aside>
 </main>
 
 <style>
-  h1 {
+  li {
     all: unset;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
   }
 
   a {
@@ -70,21 +71,19 @@
     position: fixed;
   }
 
-  section {
+  ul {
     align-content: center;
-    background: #fffe;
-    border-radius: 8px;
+    color: #fff;
     display: grid;
     gap: 8px;
     grid-auto-flow: row;
     justify-content: center;
+    list-style-type: none;
+    margin: 0;
     padding: 16px;
-    box-shadow:
-      0 1px 1px hsl(0deg 0% 0% / 0.075),
-      0 2px 2px hsl(0deg 0% 0% / 0.075),
-      0 4px 4px hsl(0deg 0% 0% / 0.075),
-      0 8px 8px hsl(0deg 0% 0% / 0.075),
-      0 16px 16px hsl(0deg 0% 0% / 0.075);
+    text-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.4),
+      0 12px 40px rgba(0, 0, 0, 0.25);
   }
 
   aside {
