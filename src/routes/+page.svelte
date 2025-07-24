@@ -21,6 +21,9 @@
     },
     {
       id: 'thv'
+    },
+    {
+      id: 'mnijungkook'
     }
   ];
 </script>
