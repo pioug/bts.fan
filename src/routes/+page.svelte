@@ -41,7 +41,7 @@
     {/each}
   </ul>
   <aside>
-    <a class="undecorated-anchor" href="https://bit.ly/twitter-pioug">🐾</a>
+    <a class="undecorated-anchor" href="https://bit.ly/twitter-pioug">🦄</a>
   </aside>
 </main>
 
