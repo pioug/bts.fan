@@ -1,29 +1,9 @@
 <svelte:head>
   <title>bts.fan</title>
   <meta name="color-scheme" content="light dark" />
-  <meta name="twitter:widgets:theme" content="light" />
-  <script>
-    document
-      .querySelector('meta[name="twitter:widgets:theme"]')
-      ?.setAttribute(
-        'content',
-        matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      );
-  </script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
 
 <main>
-  <blockquote class="twitter-tweet">
-    <p lang="en" dir="ltr">
-      replay c0mback
-      <a href="https://t.co/wqvj3rbeqQ">pic.twitter.com/wqvj3rbeqQ</a>
-    </p>
-    &mdash; BTS LINK⁷ (@btslinkita)
-    <a href="https://twitter.com/btslinkita/status/2035333324013453463?ref_src=twsrc%5Etfw">
-      March 21, 2026
-    </a>
-  </blockquote>
   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="32" fill="none" viewBox="0 0 100 32"
     ><path
       fill="#ff1340"
@@ -55,13 +35,5 @@
   svg {
     width: 100px;
     height: auto;
-  }
-
-  :global(.twitter-tweet) {
-    margin: 0 auto !important;
-  }
-
-  :global(.twitter-tweet iframe) {
-    color-scheme: auto;
   }
 </style>
